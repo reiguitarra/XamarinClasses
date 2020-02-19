@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using AppCep.Servicos;
+using AppCep.Servicos.Modulos;
 
 namespace AppCep
 {
@@ -16,6 +18,22 @@ namespace AppCep
         public MainPage()
         {
             InitializeComponent();
+
+
+
+            btn.Clicked += BuscarCep;
+        }
+
+        private void BuscarCep(object sender, EventArgs args)
+        {
+            //TODO - Lógica do Programa.
+            //TODO - validações
+
+            string _cep = cep.Text.Trim();
+            Endereco end = ViaCep.BuscarEndereco(_cep);
+
+            resultado.Text = string.Format("Endereço : {0}, {1}, {2}, {3} CEP: {4}", 
+                end.UF,end.Localidade, end.Logradouro, end.Bairro,end.Cep);
         }
     }
 }

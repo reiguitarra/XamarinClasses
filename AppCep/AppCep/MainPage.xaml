@@ -6,9 +6,15 @@
              mc:Ignorable="d"
              x:Class="AppCep.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
+    <StackLayout BackgroundColor="#FFBF00" Padding="30" Spacing="30">
+
+        <Image Source="Logo.png"/>
+        <Entry Placeholder= "Digite o CEP" PlaceholderColor="#FFBF00" TextColor="black" x:Name="cep"/>
+        <Button Text="Procura Cep" BackgroundColor="#00416B" TextColor="#FFFFFF" x:Name="btn"/>
+
+
+
+        <Label Text="" x:Name="resultado"
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
     </StackLayout>

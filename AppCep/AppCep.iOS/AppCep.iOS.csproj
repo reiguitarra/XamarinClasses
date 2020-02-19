@@ -122,6 +122,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
@@ -131,5 +134,11 @@
       <Project>{3D1123C8-5936-4ED6-8928-FDA73F4319AB}</Project>
       <Name>AppCep</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Logo.png" />
   </ItemGroup>
 </Project>
