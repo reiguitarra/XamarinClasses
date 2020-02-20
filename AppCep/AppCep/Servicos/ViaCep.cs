@@ -24,6 +24,11 @@ namespace AppCep.Servicos
 
             Endereco end = JsonConvert.DeserializeObject<Endereco>(conteudo);
 
+            if (end.Cep == null)
+            {
+                return null;
+            }
+
             return end;
 
         }
