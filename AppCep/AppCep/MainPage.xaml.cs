@@ -26,38 +26,51 @@ namespace AppCep
 
         private void BuscarCep(object sender, EventArgs args)
         {
-            
+
             //TODO - validações
-
-            string _cep = cep.Text.Trim();
-
-            if (IsValidCep(_cep))
+            try
             {
-                try
-                {
-                    Endereco end = ViaCep.BuscarEndereco(_cep);
+                string _cep = cep.Text.Trim();
 
-                    if (end != null)
-                    {
-                        resultado.Text = string.Format("Endereço : {0}, {1}, {2}, {3} CEP: {4}",
-                        end.UF, end.Localidade, end.Logradouro, end.Bairro, end.Cep);
-                    }
-                    else
-                    {
-                        DisplayAlert("ERRO", "O cep informado não foi encontrado! CEP: " + _cep,"OK");
-                    }
-                    
-                }
-                catch (Exception e)
-                {
-                    DisplayAlert("ERRO CRÍTICO", e.Message, "OK");
-                    
-                }
-                
 
+
+                if (IsValidCep(_cep))
+                {
+                    try
+                    {
+                        Endereco end = ViaCep.BuscarEndereco(_cep);
+
+                        if (end != null)
+                        {
+                            cep.Text = end.Cep;
+                            resultado.Text = string.Format("Endereço : {0}, {1}, {2}, {3} CEP: {4}",
+                            end.UF, end.Localidade, end.Logradouro, end.Bairro, end.Cep);
+                        }
+                        else
+                        {
+                            DisplayAlert("ERRO", "O cep informado não foi encontrado! CEP: " + _cep, "OK");
+                            
+                        }
+
+                    }
+                    catch (Exception e)
+                    {
+                        DisplayAlert("ERRO CRÍTICO","O CEP deve ser informado para efetuar a Busca! "+ e.Message, "OK");
+                        
+
+                    }
+
+
+                }
+                else
+                {
+                    cep.Text = "";
+                }
+
+            }catch(Exception e)
+            {
+                DisplayAlert("ERRO", "O CEP deve ser informado para efetuar a busca! "+ e.Message, "OK");
             }
-
-
            
         }
 
@@ -71,6 +84,8 @@ namespace AppCep
                 DisplayAlert("ERRO", "Cep inválido, deve conter 8 caracteres", "OK");
 
                 valido = false;
+
+                cep = "";
             }
 
             int novoCep = 0;
@@ -79,6 +94,8 @@ namespace AppCep
                 DisplayAlert("ERRO", "Cep inválido, Deve ser digitado somente Números!", "OK");
 
                 valido = false;
+
+                
             }
 
             return valido;
