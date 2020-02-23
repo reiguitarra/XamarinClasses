@@ -43,12 +43,13 @@ namespace AppCep
                         if (end != null)
                         {
                             cep.Text = end.Cep;
-                            resultado.Text = string.Format("Endereço : {0}, {1}, {2}, {3} CEP: {4}",
-                            end.UF, end.Localidade, end.Logradouro, end.Bairro, end.Cep);
+                            Endereco ende = new Endereco(end.Cep,end.Logradouro, end.Complemento, end.Bairro, end.Localidade, end.UF, end.Unidade, end.IBGE, end.Gia);
+                            resultado.Text = ende.ToString();
                         }
                         else
                         {
                             DisplayAlert("ERRO", "O cep informado não foi encontrado! CEP: " + _cep, "OK");
+                            cep.Text = null;
                             
                         }
 
@@ -85,7 +86,7 @@ namespace AppCep
 
                 valido = false;
 
-                cep = "";
+                
             }
 
             int novoCep = 0;

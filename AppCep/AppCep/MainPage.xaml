@@ -10,7 +10,7 @@
 
         <Image Source="Logo.png"/>
         <Entry Placeholder= "Digite o CEP" PlaceholderColor="#FFBF00" TextColor="black" x:Name="cep"/>
-        <Button Text="Procura Cep" BackgroundColor="#00416B" TextColor="#FFFFFF" x:Name="btn" Margin="60"/>
+        <Button Text="Procura Cep" BackgroundColor="#00416B" TextColor="#FFFFFF" x:Name="btn" Margin="45"/>
 
 
 

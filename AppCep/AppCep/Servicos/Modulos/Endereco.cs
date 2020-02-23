@@ -35,8 +35,17 @@ namespace AppCep.Servicos.Modulos
             Gia = gia;
         }
 
+        public override string ToString()
+        {
+            return "  Endereço : " + Logradouro
+                 + " \n Complemento : " + Complemento
+                 + " \n Bairro : " + Bairro
+                 + " \n Localidade : " + Localidade
+                 + " \n UF : " + UF
+                 + " \n Cep : " + Cep
+                 + " \n IBGE : " + IBGE;
+        }
 
 
-       
     }
 }
